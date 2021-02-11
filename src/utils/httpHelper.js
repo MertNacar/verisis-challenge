@@ -20,13 +20,6 @@ export function getUserDetails(id) {
 }
 
 export function createUser(user) {
-  console.log('object', {
-    ...user,
-    id: Math.floor(Math.random() * 10000),
-    isActive: true,
-    birthDate: Math.round((new Date(user.birthDate)).getTime() / 1000),
-    hiredDate: Math.round((new Date()).getTime() / 1000),
-  })
   return new Promise((resolve, reject) => {
     fetch("https://602413d96bf3e6001766be2d.mockapi.io/users", {
       method: "POST",

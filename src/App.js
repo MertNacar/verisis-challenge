@@ -14,7 +14,6 @@ library.add(fas)
 function App() {
   return (
     <Router>
-      <div></div>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -26,7 +25,6 @@ function App() {
           <Edit />
         </Route>
       </Switch>
-
     </Router>
   );
 }

@@ -13,6 +13,14 @@ function UserEditForm(props) {
     picture: "",
     isActive: true,
   });
+  const [passwordValidations, setPasswordValidations] = useState({
+    hasCorrectLength: false,
+    hasNotIncludeBirthDate: false,
+    hasAlphaLetter: false,
+    hasNumber: false,
+    hasBigLetter: false,
+    hasSmallLetter: false,
+  });
 
   useEffect(() => {
     if (props.initForm) {
@@ -20,41 +28,33 @@ function UserEditForm(props) {
     }
   }, [props.initForm]);
 
-  function handleGetPasswordValidation() {
-    const password = form.password;
-    const birthDate = form.birthDate.replace("-", "");
-    let passwordValidations = {
-      hasCorrectLength: 8 <= password.length && password.length <= 16,
-      hasNotIncludeBirthDate: !password.includes(birthDate),
-      hasAlphaLetter: false,
-      hasNumber: false,
-      hasBigLetter: false,
-      hasSmallLetter: false,
-    };
+  useEffect(() => {
+    const { password, birthDate } = form; 
+    let hasAlphaLetter = false,
+      hasNumber = false,
+      hasBigLetter = false,
+      hasSmallLetter = false;
+
     password.split("").forEach((digit) => {
       let charCode = digit.charCodeAt();
-      if (32 < charCode && charCode < 48) {
-        passwordValidations = {
-          ...passwordValidations,
-          hasAlphaLetter: true,
-        };
-      } else if (47 < charCode && charCode < 58) {
-        passwordValidations = {
-          ...passwordValidations,
-          hasNumber: true,
-        };
-      } else if (64 < charCode && charCode < 91) {
-        passwordValidations = {
-          ...passwordValidations,
-          hasBigLetter: true,
-        };
-      } else if (96 < charCode && charCode < 123) {
-        passwordValidations = {
-          ...passwordValidations,
-          hasSmallLetter: true,
-        };
-      }
+      if (32 < charCode && charCode < 48) hasAlphaLetter = true;
+      else if (47 < charCode && charCode < 58) hasNumber = true;
+      else if (64 < charCode && charCode < 91) hasBigLetter = true;
+      else if (96 < charCode && charCode < 123) hasSmallLetter = true;
     });
+
+    setPasswordValidations((prevState) => ({
+      ...prevState,
+      hasCorrectLength: 8 <= password.length && password.length <= 16,
+      hasNotIncludeBirthDate: !password.includes(birthDate.replace("-", "")),
+      hasAlphaLetter,
+      hasNumber,
+      hasBigLetter,
+      hasSmallLetter,
+    }));
+  }, [form.password, form.birthDate]); // eslint-disable-line
+
+  function handleGetPasswordIsValid() {
     return !Object.values(passwordValidations).includes(false);
   }
 
@@ -69,7 +69,7 @@ function UserEditForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     setErr(false);
-    const passwordIsValid = handleGetPasswordValidation();
+    const passwordIsValid = handleGetPasswordIsValid();
     if (passwordIsValid) {
       props.onSubmit({ user: { ...form } });
     } else {
@@ -79,7 +79,13 @@ function UserEditForm(props) {
 
   return (
     <div>
-      {err ? <p className="error-message">Please check your password</p> : ""}
+      {err ? (
+        <p className="error-message d-flex justify-center align-center">
+          Please check your password
+        </p>
+      ) : (
+        ""
+      )}
 
       <form
         onSubmit={handleSubmit}
