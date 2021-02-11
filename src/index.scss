@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+
+$primaryColor: rgb(173, 88, 88);
+$bgColor: rgb(48, 45, 45);
+$inputBgColor: rgb(68, 62, 62);
+$redColor: rgb(240, 42, 42);
+$greenColor: rgb(39, 207, 39);
+$whiteColor: whitesmoke;
+
+// Tags
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: $bgColor;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-style-tags {
+  color: $whiteColor;
+  width: 250px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+button {
+  @extend .custom-style-tags;
+  border: none;
+  font-weight: bold;
+  background-color: $primaryColor;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/assets/icons/arrow-down.png") no-repeat right center;
+  background-size: 35px 30px;
+}
+
+input,
+select {
+  @extend .custom-style-tags;
+  border: 2px solid $primaryColor;
+  background-color: $inputBgColor;
+}
+
+input:focus,
+select:focus,
+button:focus {
+  box-shadow: 0 0 3pt 2pt $primaryColor;
+  outline: none;
+}
+
+input::placeholder,
+select::placeholder,
+button::placeholder {
+  opacity: 0.8;
+  color: $whiteColor;
+}
+
+input[type="checkbox"] {
+  width: fit-content;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+// Layout
+.w-100 {
+  width: 100%;
+}
+.d-flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.d-inline-block {
+  display: inline-block;
+}
+.flex-column {
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-1 {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.justify-center {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.justify-space-around {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.align-center {
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+// Spacing
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.my-5 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.pa-4 {
+  padding: 1rem;
+}
+.pa-5 {
+  padding: 1.5rem;
+}
+
+// Text
+.heading-text {
+  color: $primaryColor;
+  // Custom
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-pointer:hover {
+  opacity: 0.65;
+}
+
+.error-message {
+  color: red;
+}
+
+.green--text {
+  color: $greenColor;
+}
+
+.red--text {
+  color: $redColor;
+}
+.user-item {
+  border: 2px $primaryColor solid;
+
+  border-radius: 10px;
+}
+.user-item-part {
+  min-width: 200px;
+}
+
+.user-form > * {
+  margin: 1rem 0;
+}
