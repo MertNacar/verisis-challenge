@@ -70,7 +70,7 @@ function UserList() {
                 return (
                   <div
                     key={id}
-                    className="user-item w-100 pa-5 my-3 d-flex justify-space-around align-center"
+                    className="user-item pa-5 my-3 d-flex justify-space-between align-center"
                   >
                     <FontAwesomeIcon
                       color="grey"

@@ -76,9 +76,6 @@ input[type="checkbox"]:focus {
 }
 
 // Layout
-.w-100 {
-  width: 100%;
-}
 .d-flex {
   display: -webkit-box;
   display: -moz-box;
@@ -86,9 +83,7 @@ input[type="checkbox"]:focus {
   display: -webkit-flex;
   display: flex;
 }
-.d-inline-block {
-  display: inline-block;
-}
+
 .flex-column {
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
@@ -96,21 +91,16 @@ input[type="checkbox"]:focus {
   flex-direction: column;
 }
 
-.flex-1 {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
 .justify-center {
   -webkit-justify-content: center;
   justify-content: center;
 }
-.justify-space-around {
+
+.justify-space-between {
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
+
 .align-center {
   -webkit-box-align: center;
   align-items: center;
@@ -120,31 +110,36 @@ input[type="checkbox"]:focus {
 .mr-2 {
   margin-right: 0.5rem;
 }
+
 .ml-2 {
   margin-left: 0.5rem;
 }
+
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
+
 .mr-4 {
   margin-right: 1rem;
 }
+
 .my-5 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
+
 .pa-4 {
   padding: 1rem;
 }
+
 .pa-5 {
   padding: 1.5rem;
 }
 
-// Text
+// Custom
 .heading-text {
   color: $primaryColor;
-  // Custom
 }
 
 .cursor-pointer {
@@ -168,9 +163,9 @@ input[type="checkbox"]:focus {
 }
 .user-item {
   border: 2px $primaryColor solid;
-
   border-radius: 10px;
 }
+
 .user-item-part {
   min-width: 200px;
 }

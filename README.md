@@ -2,6 +2,7 @@
 
 This app created with react and includes three pages for CRUD operations.
 App's styling applied with scss.
+Used mockAPI for data and CRUD operations.
 ## Available Scripts
 In the project directory, you can run priorty order: `Recomended yarn`
 
