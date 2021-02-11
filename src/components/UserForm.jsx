@@ -29,7 +29,7 @@ function UserEditForm(props) {
   }, [props.initForm]);
 
   useEffect(() => {
-    const { password, birthDate } = form; 
+    const { password, birthDate } = form;
     let hasAlphaLetter = false,
       hasNumber = false,
       hasBigLetter = false,
