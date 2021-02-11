@@ -1,8 +1,7 @@
 # Verisis Frontend Challenge
 
-This app created with react and includes three pages for CRUD operations.
-App's styling applied with scss.
-Used mockAPI for data and CRUD operations.
+Verisis Frontend Challenge created with react and includes three pages for CRUD operations. <br>
+The app's styling applied with scss and used mockAPI for data and CRUD operations.
 ## Available Scripts
 In the project directory, you can run priorty order: `Recomended yarn`
 
